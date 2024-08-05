@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="umnico" model="webhook">
+    <field name="name">umnico</field>
+    <field name="python_code_get_event">request.jsonrequest.get("type").replace(".", "_")</field>
+    <field name="python_code_get_ip">request.httprequest.headers.get("X-Umnico-Address")</field>
+  </record>
+  <record id="webhook_address_umnico" model="webhook.address">
+    <field name="name">95.213.180.212/24</field>
+    <field name="webhook_id" ref="umnico"/>
+  </record>
+</odoo>
